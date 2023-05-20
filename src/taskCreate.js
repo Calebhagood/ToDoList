@@ -4,7 +4,6 @@ function Task(title, description, project, dueDate, priority) {
   this.project = project;
   this.dueDate = dueDate;
   this.priority = priority;
-  console.log(this.title);
 }
 
 export { Task };
