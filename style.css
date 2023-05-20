@@ -81,6 +81,14 @@ body {
   font-weight: 200;
 }
 
+#createdTasks {
+  display: grid;
+  min-height: 100%;
+  grid-auto-rows: max-content;
+  grid-template-columns: 1fr;
+  gap: 20px;
+}
+
 #list {
   grid-area: 2/2/3/3;
   background-color: #f1f1f1;
@@ -129,15 +137,15 @@ body {
   background-color: #fff;
 }
 
-.high {
+.High {
   border-left: #e90808 solid 5px;
 }
 
-.med {
+.Medium {
   border-left: #ffe606 solid 5px;
 }
 
-.low {
+.Low {
   border-left: #00ff22 solid 5px;
 }
 
@@ -156,17 +164,20 @@ body {
   width: 100%;
   background-color: #fffffff9;
   border-radius: 20px 20px 0 0;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  animation: popup 0.3s linear 0s forwards;
+  /* display: flex; */
+  /* justify-content: center;
+  align-items: center; */
   outline: #000 solid 1px;
 }
 
 #addProjectForm {
   height: 100%;
+  width: 85%;
   display: flex;
   flex-direction: column;
   justify-content: space-around;
+  margin-left: 20px;
 }
 
 #addProjectForm h3 {
@@ -203,6 +214,11 @@ button {
   width: 120px;
 }
 
+.formDivBtn {
+  width: 80px;
+  text-align: center;
+}
+
 #addTaskFormContainer {
   position: absolute;
   left: 0;
@@ -211,9 +227,10 @@ button {
   width: 100%;
   background-color: #fffffff9;
   border-radius: 20px 20px 0 0;
-  display: flex;
+  animation: popup 0.3s linear 0s forwards;
+  /* display: flex;
   justify-content: center;
-  align-items: center;
+  align-items: center; */
   outline: #000 solid 1px;
 }
 
@@ -252,4 +269,18 @@ button {
 .icons {
   display: flex;
   gap: 20px;
+}
+
+.hidden {
+  display: none;
+}
+
+@keyframes popup {
+  0% {
+    height: 0;
+  }
+
+  100% {
+    height: 30vh;
+  }
 }
