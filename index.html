@@ -20,22 +20,39 @@
         <ul class="menuList">
           <li class="menuItem">Home</li>
           <li class="menuItem">Projects</li>
-          <ul class="projectsList">
-            <li class="projectItem">Gym</li>
-            <li class="projectItem">School</li>
-            <li class="projectItem">Work</li>
-          </ul>
+
+          <div>
+            <ul class="projectsList">
+              <div id="createdProjects">
+                <li class="projectItem">Gym</li>
+                <li class="projectItem">School</li>
+                <li class="projectItem">Work</li>
+              </div>
+            </ul>
+          </div>
         </ul>
-        <div class="addBtn" id="showAddProjectFormBtn">Add Project</div>
+        <div id="menuBtns">
+          <div class="addBtn" id="showAddProjectFormBtn">Add Project</div>
+          <div class="addBtn" id="DeleteProjectBtn" data-delete-project-button>
+            Delete Project
+          </div>
+        </div>
         <div id="addProjectFormContainer" class="hidden">
-          <form action="" id="addProjectForm">
+          <form action="" id="addProjectForm" data-new-project-form>
             <h3>Add A Project</h3>
             <div class="inputDiv">
               <label for="projectTitle">Project Title:</label>
-              <input type="text" name="projectTitle" id="projectTitleInput" />
+              <input
+                type="text"
+                name="projectTitle"
+                id="projectTitleInput"
+                data-new-project-input
+              />
             </div>
             <div class="formBtns">
-              <button class="addBtn formBtn" type="submit">Add Project</button>
+              <button class="addBtn formBtn" type="submit" id="addProjectBtn">
+                Add Project
+              </button>
               <div class="addBtn formDivBtn" id="projectFormCancelBtn">
                 Cancel
               </div>
@@ -44,9 +61,12 @@
         </div>
       </div>
       <div id="list">
-        <div class="mainListContent">
+        <div class="mainListContent" data-task-display-container>
           <div class="listHeading">
-            <h3>Tasks</h3>
+            <div id="headingTop">
+              <h3 class="heading" data-list-title>Tasks</h3>
+              <p class="taskCount" data-list-count>5 Tasks Remaining</p>
+            </div>
             <div class="taskLabels">
               <div class="title">Title</div>
               <div class="description">Description</div>
@@ -56,7 +76,7 @@
               <div class="icons">Edit/Delete</div>
             </div>
           </div>
-          <div id="createdTasks">
+          <div id="createdTasks" data-tasks>
             <div class="task High">
               <div class="title">Math Homework</div>
               <div class="description">pg.471 #1-65 by 4</div>
@@ -143,7 +163,7 @@
                 </div>
               </div>
             </div>
-            <div class="task Med">
+            <div class="task Medium">
               <div class="title">Study for Calculus Exam</div>
               <div class="description">Exam on Ch. 7</div>
               <div class="projectName">School</div>
@@ -274,7 +294,9 @@
             </div>
           </div>
         </div>
-        <div class="addBtn" id="showAddTaskFormBtn">Add Task</div>
+        <div class="addBtn" id="showAddTaskFormBtn" data-add-task-button>
+          Add Task
+        </div>
         <div id="addTaskFormContainer" class="hidden">
           <form action="" id="addTaskForm">
             <h3>Add A Task</h3>
@@ -318,7 +340,53 @@
         </div>
       </div>
     </div>
-
+    <div class="deleteTaskButton"></div>
+    <template id="task-template">
+      <div class="task High">
+        <input type="checkbox" class="checkbox" />
+        <div class="title"></div>
+        <div class="description"></div>
+        <div class="projectName"></div>
+        <div class="dueDate"></div>
+        <div class="priority"></div>
+        <div class="icons">
+          <div class="editIcon">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke-width="1.5"
+              stroke="currentColor"
+              width="20px"
+              height="20px"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                d="M16.862 4.487l1.687-1.688a1.875 1.875 0 112.652 2.652L10.582 16.07a4.5 4.5 0 01-1.897 1.13L6 18l.8-2.685a4.5 4.5 0 011.13-1.897l8.932-8.931zm0 0L19.5 7.125M18 14v4.75A2.25 2.25 0 0115.75 21H5.25A2.25 2.25 0 013 18.75V8.25A2.25 2.25 0 015.25 6H10"
+              />
+            </svg>
+          </div>
+          <div class="deleteIcon">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke-width="1.5"
+              stroke="currentColor"
+              width="20px"
+              height="20px"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                d="M14.74 9l-.346 9m-4.788 0L9.26 9m9.968-3.21c.342.052.682.107 1.022.166m-1.022-.165L18.16 19.673a2.25 2.25 0 01-2.244 2.077H8.084a2.25 2.25 0 01-2.244-2.077L4.772 5.79m14.456 0a48.108 48.108 0 00-3.478-.397m-12 .562c.34-.059.68-.114 1.022-.165m0 0a48.11 48.11 0 013.478-.397m7.5 0v-.916c0-1.18-.91-2.164-2.09-2.201a51.964 51.964 0 00-3.32 0c-1.18.037-2.09 1.022-2.09 2.201v.916m7.5 0a48.667 48.667 0 00-7.5 0"
+              />
+            </svg>
+          </div>
+        </div>
+      </div>
+    </template>
     <script src="main.js"></script>
   </body>
 </html>
