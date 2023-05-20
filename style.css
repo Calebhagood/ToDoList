@@ -1,155 +1,245 @@
-:root{
-    --primaryColor: #771af0;
-    --secondaryColor: #e4c8fc;
+:root {
+  --primaryColor: #771af0;
+  --secondaryColor: #e4c8fc;
 }
 
-*{
-    margin: none;
-    padding: none;
+body {
+  width: 100vw;
+  height: 100vh;
+  background-color: var(--primaryColor);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+
+  padding: none;
+  margin: 0;
 }
 
-body{
-    width: 100vw;
-    height: 100vh;
-    background-color: var(--primaryColor);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    overflow: hidden;
-    position: relative;
-    padding: none;
-
+#content {
+  width: 100%;
+  height: 100%;
+  display: grid;
+  grid-template-columns: 1fr 5fr;
+  grid-template-rows: 1fr 7fr;
+  border-radius: 40px;
 }
 
-#content{
-    width: 60%;
-    height: 80%;
-    display: grid;
-    grid-template-columns: 1fr 5fr;
-    grid-template-rows: 1fr 7fr;
+#header {
+  grid-area: 1/1/2/3;
+  background-color: var(--primaryColor);
+  font-family: "Archivo Black", sans-serif;
+  font-size: 60px;
+  color: #fff;
+  padding-left: 20px;
+  padding-top: 10px;
 }
 
-#header{
-grid-area: 1/1/2/3;
-background-color: var(--secondaryColor);
-font-family: 'Archivo Black', sans-serif;
-font-size: 60px;
-color: #fff;
-padding-left: 20px;
-padding-top: 10px;
+#menu {
+  grid-area: 2/1/3/2;
+  background-color: #e0e0e0;
+  padding-top: 10px;
+  padding-bottom: 30px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  position: relative;
 }
 
-#menu{
-    grid-area: 2/1/3/2;
-    background-color: #e0e0e0;
-    padding-top: 10px;
-    padding-bottom: 30px;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
+.addBtn {
+  margin: 0 auto;
+  outline: #000 solid 1px;
+  padding: 10px 20px;
+  background-color: var(--primaryColor);
+  color: #fff;
+  box-shadow: #0000004d 0px 5px 10px 2px;
+  cursor: pointer;
 }
 
-.addBtn{
-    margin: 0 auto;
-    outline: #000 solid 1px;
-    padding: 10px 20px;
-    background-color: var(--primaryColor);
-    color: #fff;
-    box-shadow: #0000004d 0px 5px 10px 2px;
-    cursor: pointer;
+.menuList,
+.projectsList {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  list-style: none;
+  font-family: "Archivo Black", sans-serif;
+  width: 100px;
 }
 
-.menuList, .projectsList{
-    display: flex;
-    flex-direction: column;
-    gap: 20px;
-    list-style: none;
-    font-family: 'Archivo Black', sans-serif;
-    width: 100px;
+.menuList {
+  font-size: 24px;
+  font-weight: 300;
 }
 
-.menuList{
-    font-size: 24px;
-    font-weight: 300;
+.projectsList {
+  font-size: 20px;
+  font-weight: 200;
 }
 
-.projectsList{
-    font-size: 20px;
-    font-weight: 200;
+#list {
+  grid-area: 2/2/3/3;
+  background-color: #f1f1f1;
+  border-left: #000 solid 1px;
+  padding-left: 20px;
+  padding-top: 5px;
+  padding-bottom: 30px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  position: relative;
 }
 
-#list{
-    grid-area: 2/2/3/3;
-    background-color: #f1f1f1;
-    border-left: #000 solid 1px;
-    padding-left: 20px;
-    padding-top: 5px;
-    padding-bottom: 30px;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
+.mainListContent {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
 }
 
-.mainListContent{
-    display: flex;
-    flex-direction: column;
-    gap:20px;
+.listHeading {
+  height: 50px;
 }
 
-.listHeading{
-    height: 50px;
+.taskLabels {
+  width: 90%;
+  height: 25px;
+  display: grid;
+  grid-template-columns: 1fr 2.5fr 1fr 1fr 1fr;
+  gap: 25px;
+  align-items: center;
+  margin: 0 auto;
+  padding-left: 10px;
+  font-weight: 700;
 }
 
-.taskLabels{
-    width: 90%;
-    height: 25px;
-    display: grid;
-    grid-template-columns: 1fr 2fr 1fr 1fr;
-    gap: 25px;
-    align-items: center;
-    margin: 0 auto;
-    padding-left: 10px;
+.task {
+  width: 90%;
+  height: 50px;
+  display: grid;
+  grid-template-columns: 1fr 2.5fr 1fr 1fr 1fr;
+  gap: 25px;
+  align-items: center;
+  outline: #000 solid 1px;
+  margin: 0 auto;
+  padding-left: 10px;
+  background-color: #fff;
 }
 
-.task{
-    width: 90%;
-    height: 50px;
-    display: grid;
-    grid-template-columns: 1fr 2fr 1fr 1fr;
-    gap: 25px;
-    align-items: center;
-    outline: #000 solid 1px;
-    margin: 0 auto;
-    padding-left: 10px;
-    background-color: #fff;
+.high {
+  border-left: #e90808 solid 5px;
 }
 
-.high{
-    border-left: #e90808 solid 5px;
+.med {
+  border-left: #ffe606 solid 5px;
 }
 
-.med{
-    border-left: #ffe606 solid 5px
+.low {
+  border-left: #00ff22 solid 5px;
 }
 
-.low{
-    border-left: #00ff22 solid 5px;
+#list h3 {
+  text-align: center;
+  font-family: "Archivo Black", sans-serif;
+  padding: 0;
+  margin: 0;
 }
 
-#list h3{
-    text-align: center;
-    font-family: 'Archivo Black', sans-serif;
-    padding: 0;
-    margin: 0;
+#addProjectFormContainer {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  height: 30vh;
+  width: 100%;
+  background-color: #fffffff9;
+  border-radius: 20px 20px 0 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  outline: #000 solid 1px;
 }
 
-#addProjectFormContainer{
-    position: absolute;
-    left: 0;
-    height: 100vh;
-    width: 20%;
-    background-color: #fff;
-
+#addProjectForm {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
 }
 
+#addProjectForm h3 {
+  font-family: "Archivo Black", sans-serif;
+  font-size: 30px;
+  padding: 0;
+  margin: 0;
+}
 
+.inputDiv {
+  display: flex;
+  flex-direction: column;
+}
+
+.inputDiv label {
+  font-family: "Archivo Black", sans-serif;
+  font-size: 14px;
+}
+
+#projectTitleInput {
+  height: 20px;
+}
+
+button {
+  border: none;
+}
+
+.formBtns {
+  display: flex;
+  gap: 20px;
+}
+
+.formBtn {
+  width: 120px;
+}
+
+#addTaskFormContainer {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  height: 30vh;
+  width: 100%;
+  background-color: #fffffff9;
+  border-radius: 20px 20px 0 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  outline: #000 solid 1px;
+}
+
+#addTaskForm {
+  height: 100%;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+}
+
+#addTaskForm h3 {
+  font-family: "Archivo Black", sans-serif;
+  font-size: 30px;
+  padding: 0;
+  margin: 0;
+}
+
+.taskFormInputs {
+  display: flex;
+  justify-content: space-evenly;
+}
+
+.taskFormBtns {
+  display: flex;
+  justify-content: space-evenly;
+  width: 400px;
+  margin: 0 auto;
+}
+
+.inputDiv input,
+.inputDiv select {
+  height: 20px;
+}
