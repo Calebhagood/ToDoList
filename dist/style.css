@@ -71,6 +71,11 @@ body {
   font-weight: 300;
 }
 
+.menuItem,
+.projectItem {
+  cursor: pointer;
+}
+
 .projectsList {
   font-size: 20px;
   font-weight: 200;
@@ -103,7 +108,7 @@ body {
   width: 90%;
   height: 25px;
   display: grid;
-  grid-template-columns: 1fr 2.5fr 1fr 1fr 1fr;
+  grid-template-columns: 1fr 2.5fr 1fr 1fr 1fr 1fr;
   gap: 25px;
   align-items: center;
   margin: 0 auto;
@@ -115,7 +120,7 @@ body {
   width: 90%;
   height: 50px;
   display: grid;
-  grid-template-columns: 1fr 2.5fr 1fr 1fr 1fr;
+  grid-template-columns: 1fr 2.5fr 1fr 1fr 1fr 1fr;
   gap: 25px;
   align-items: center;
   outline: #000 solid 1px;
@@ -242,4 +247,9 @@ button {
 .inputDiv input,
 .inputDiv select {
   height: 20px;
+}
+
+.icons {
+  display: flex;
+  gap: 20px;
 }
