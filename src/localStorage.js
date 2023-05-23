@@ -26,3 +26,4 @@ export { LOCAL_STORAGE_PROJECT_KEY };
 export { LOCAL_STORAGE_SELECTED_PROJECT_ID_KEY };
 export { saveAndRender };
 export { selectedProjectId };
+export { save };

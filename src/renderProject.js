@@ -12,6 +12,9 @@ const listTitleElement = document.querySelector("[data-list-title]");
 const listCountElement = document.querySelector("[data-list-count]");
 const tasksContainer = document.querySelector("[data-tasks]");
 const addTaskBtn = document.querySelector("[data-add-task-button]");
+const clearTasksBtn = document.querySelector(
+  "[data-clear-complete-tasks-button"
+);
 const taskTemplate = document.getElementById("task-template");
 let projectListElement = document.querySelector("#createdProjects");
 
@@ -26,28 +29,42 @@ function render() {
     //come back and change to show all tasks
     taskDisplayContainer.style.display = "none";
     addTaskBtn.style.display = "none";
+    clearTasksBtn.style.display = "none";
   } else {
     taskDisplayContainer.style.display = "";
     addTaskBtn.style.display = "";
+    clearTasksBtn.style.display = "";
     listTitleElement.innerText = selectedProject.name;
     renderTaskCount(selectedProject);
     clearElement(tasksContainer);
     renderTasks(selectedProject);
   }
 }
-//WORK ON THIS NEXT
+
 function renderTasks(selectedProject) {
   selectedProject.tasks.forEach((task) => {
-    const taskElement = document.importNode(taskTemplate.contentEditable, true);
+    const taskElement = document.importNode(taskTemplate.content, true);
+    const templateTaskDiv = taskElement.querySelector("#templateTaskDiv");
     const checkbox = taskElement.querySelector(".checkbox");
     checkbox.id = task.id;
     checkbox.checked = task.complete;
+
     const title = taskElement.querySelector(".title");
+    title.append(task.name);
     const description = taskElement.querySelector(".description");
-    const project = taskElement.querySelector(".projectName");
+    description.append(task.description);
     const dueDate = taskElement.querySelector(".dueDate");
+    dueDate.append(task.dueDate);
     const priority = taskElement.querySelector(".priority");
-    const icons = taskElement.querySelector(".icons");
+    priority.append(task.priority);
+    if (task.priority === "Low") {
+      templateTaskDiv.classList.add("Low");
+    } else if (task.priority === "Medium") {
+      templateTaskDiv.classList.add("Medium");
+    } else if (task.priority === "High") {
+      templateTaskDiv.classList.add("High");
+    }
+    tasksContainer.appendChild(taskElement);
   });
 }
 
@@ -88,3 +105,5 @@ function clearElement(element) {
 export { clearElement };
 export { renderProjects };
 export { render };
+export { tasksContainer };
+export { renderTaskCount };
